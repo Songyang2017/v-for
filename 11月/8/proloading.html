@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>图片懒加载</title>
+</head>
+<style>
+	div:first-child{
+		margin: 100px auto 10px;
+	}
+	div{
+		margin: 0 auto 10px;text-align: center;
+	}
+	img{width: 300px;height: 187px;display: inline-block; background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510120409332&di=8ec70d24b7feccbb6455930b7c31af17&imgtype=0&src=http%3A%2F%2Fwww.cddatu.com%2Fuc%2Ftemplate%2Flightsail_mwt1%2Fextend%2Fimg%2Fnoimg.jpg)no-repeat;background-size: cover;border:none;}
+
+</style>
+<body>
+	<h4 id="num"></h4>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	<div>
+		<img class="box" src="" alt="">
+		<img class="box" src="" alt="">
+	</div>
+	
+	<script src="http://lib.sinaapp.com/js/jquery/1.6/jquery.min.js"></script>
+	<script>
+		
+
+		var imgArr=["https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510714683&di=9737ac6bcd525495f0fbac8341a9f1e2&imgtype=jpg&er=1&src=http%3A%2F%2Fimg1.3lian.com%2F2015%2Fa1%2F43%2Fd%2F152.jpg"];
+
+		imgIsComplete(imgArr);
+
+		
+
+		function imgIsComplete(img){
+			var a=0,len=$(".box").length;
+			$.each(img,function(index){
+				$(".box").attr("src",img[index]).load(function(){
+					// $(this).remove();
+					a++;
+					console.log(len);
+					var percent=Math.round((a/len)*100);
+					$("#num").html(percent);
+				})
+			});
+			var interval=setInterval(function(){
+
+
+				if(a==len){
+					clearInterval(interval);
+				}
+			},300)
+		}
+	</script>
+</body>
+</html>
