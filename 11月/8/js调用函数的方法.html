@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js调用函数4方法</title>
+</head>
+<body style="background-color: #f5f5f5">
+	<button id="box">测试</button>
+	<a href="https://www.baidu.com/" id="jump">百度一下</a>
+	<script>
+		var box=document.getElementById("box");
+		var jump=document.getElementById("jump");
+
+		//第一种
+
+		// function one(){
+		// 	// alert("你好，我是第一种");
+		// 	console.log("你好，我是第一种");
+		// }
+		// one();
+
+		// 使用函数的Lambda表达式定义函数，然后调用
+
+		// var func=function(){
+		// 	console.log(this);
+		// 	 console.log(this.document.URL);
+		// 	 console.log(this.document.title);
+		// }
+		// func();
+
+		//
+
+		// box.onclick=function(){
+		// 	console.log(this);
+		// }
+
+
+		jump.onclick=function(){
+			if(window.document.URL!="file:///E:/Song20171023/%E5%85%B6%E4%BB%96/%E7%BB%83%E4%B9%A0%E4%BB%A3%E7%A…8/8/js%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95.html"){
+				// alert("确定以及肯定？")
+				var router=confirm("确定要跳转？");
+				if(!router){
+					jump.href="";
+				}
+			}
+		}
+
+
+
+	</script>
+</body>
+</html>
