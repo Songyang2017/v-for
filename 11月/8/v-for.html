@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>停诊信息</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.ting-Message{
+			background-color: #fff;
+			margin: 0;
+			padding: 0.4rem 0;
+			color: #f34646;
+			font-weight: bold;
+			text-indent: 10px;
+			border-bottom: 1px solid #eee;
+		}
+		.ting-content{
+		}
+		.ting-msgMar{
+			border-radius: 5px;
+			background: #fff;
+			margin:0.8rem 0;
+		}
+		.ting-msgMar li{
+			padding: 0.2rem 0;
+		}
+		.ting-msgMar li:last-child{
+			padding-bottom: 0.4rem;
+		}
+		.ting-msgMar li:first-child{
+			font-size: 0.9rem;
+			text-indent: 10px;
+			padding: 0.4rem 0;
+		}
+		.ting-msgMar li:last-child{
+			border-bottom: 1px solid #eee;
+
+		}
+		.ting-msgMar li span{
+			padding-left: 10px;
+		}
+		.ting-msgMar li span:first-child{
+			color: #616161;
+		}
+		.ting-msgMar li span:last-child{
+			padding-left: 5px;
+		}
+		.ting-msgMar li{
+		}.ting-msgMar li:first-child{
+			color: #9a9a9a;
+		}
+		.ting-msgMar li span:nth-of-type(2){
+			color: #38aef3;
+		}
+	</style>
+</head>
+<body style="background: #fff">
+	<p class="ting-Message">注：如有变化，请以医院门诊为主</p>
+	<div class="ting-content" id="app">
+		<ul v-for="x in msg" class="ting-msgMar">
+			<li>{{x.data}}</li>
+			<li v-for="y in x.top">
+				<span>{{y.docKind}}</span>
+				<span>{{y.doc}}</span>
+				<span>{{y.time}}</span>
+			</li>
+		</ul>
+	</div>
+		
+
+	<script src="http://static.jsk365.com/lib/vue/vue.min.js"></script>
+	<script>
+	var info=[{	data:"2017-10-09 (星期一)停诊医师",
+					top:[{
+						docKind:"消化内科",
+						doc:"朱振宇",
+						time:"(上午)"
+					},{
+						docKind:"肛肠外科",
+						doc:"尹华",
+						time:"(上午)"
+					}]	
+				},
+				{
+					data:"2017-10-10 (星期二)停诊医师",
+					top:[{
+						docKind:"心血管内科",
+						doc:"张华",
+						time:"(上午)"
+					}]	
+				},
+				{
+					data:"2017-10-11 (星期三)停诊医师",
+					top:[{
+						docKind:"免疫",
+						doc:"韩捷",
+						time:"(上午)"
+					},{
+						docKind:"内分泌科",
+						doc:"李慧芝",
+						time:"(上午)"
+					},{
+						docKind:"血管外科",
+						doc:"葛进",
+						time:"(上午)"
+					}]	
+				}
+			]
+
+
+		var app=new Vue({
+			el:"#app",
+			data:{
+				msg:info
+			}
+		})
+
+	</script>
+</body>
+</html>
